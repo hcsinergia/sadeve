@@ -1,0 +1,137 @@
+{% extends 'base-index.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+
+
+<!-- seccion: sonbre nosotros -->
+<section class="callaction">
+    <!-- <div class="container-fluid"> -->
+    <div class="container mt-4">
+
+        <div class="row "> <!-- row -->
+            <!-- <div class="col-8" style="background-color: aquamarine;">  -->
+            <div class="col-sm-12 col-md-12 col-xl-8 clearfix" >  <!--  cuerpo -->
+
+                <!-- <div class="row mt-2"> -->
+                    <h5 class="display-4" style="font-size: 40px;">Presentaciones</h5>
+                    <!-- <div class="col-8 " ></div> -->
+
+                    {% for post in queryset %}
+                    <!-- <div class="col-8 "> -->
+                        
+                        <div class="card w-100 bg-light"><!-- inicio de la tarjeta -->
+          
+                            <div class="card-header">
+                              <!-- <h3 class="card-title lead"><a href="{{ obj.get_absolute_url }}"> {{ obj.title }} </a></h3> -->
+                            </div>
+                            <img class="img-fluid" src="{{ post.thumbnail.url }}" alt="">
+                            
+                          <div class="card-body ">
+                            <a href="{{ post.get_absolute_url }}" class="lead text-secondary" style="font-size: 20px;"> {{ post.title }} </a>
+                            <hr />
+                            <p class="lead" style="font-size: 15px;"> {{ post.overview }} </p>
+                            <p><a href="{{ post.get_absolute_url }}" class="text-secondary"> <i class="fas fa-link"></i> Leer artículo</a></p>
+                          </div>  
+                          
+                          <div class="card-footer">
+                            <ul class="fa-ul">
+                              <li><i class="fa-li fas fas fa-user text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Publicó: {{ post.author.user.username }}</p></li>
+                              <li><i class="fa-li fas fas fa-clock text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Fecha y hora: {{ post.timestamp }} </p></li>
+                              {% for cat in post.categories.all %}
+                                  <li><i class="fa-li fas fas fa-clock text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Categoría: {{ cat }} </p></li>
+                              {% endfor %}
+                            </ul> 
+                          </div>
+                          
+                        </div> <!-- fin de la tarjeta -->
+                    </br>
+                       
+                    <!-- </div> -->
+                    {% endfor %}
+                    
+                <!-- </div> -->
+            </div>  <!-- fin cuerpo -->
+
+            <div class="col-sm-12 col-md-12 col-xl-4 d-lg-block d-xl-block  clearfix mt-5" style="background-color: white;">  <!--  sidebar -->
+                {% include 'sidebar-index.html' %}
+            </div> <!-- fin sidebar -->
+
+
+
+
+            <!-- PAGINADOR -->
+            <div class="pagination mb-4 ">
+                {% if queryset.has_previous %}
+                <li class="page-item">
+                    <a class="page-link text-secondary lead" style="font-size: 15px;"" href="?page={{ queryset.previous_page_number }}" tabindex="-1">Anterior</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled " >
+                    <span>
+                        <i class="page-link text-secondary lead" style="font-size: 15px;"">Anterior</i>
+                    </span>
+                </li>
+                {% endif %}
+                <li class="page-item text-secondary lead" style="font-size: 15px;"">
+                    <a href="?page={{ queryset.number|add:'-5' }}"></a>
+                </li>
+
+
+                {% if queryset.number|add:'-4' > 1 %}
+                <li class="text-secondary lead">
+                    <a href="?page={{ queryset.number|add:'-5' }}"></a>
+                </li>
+
+                {% endif %}
+    
+                    {% for i in queryset.paginator.page_range %}
+                        {% if queryset.number == i %}
+                        <li class="page-item text-secondary lead">
+                            <a class="page-link" style="font-size: 15px; background-color: lightgray ; ""><span class="">{{ i }}</span></a>
+                        </li>
+
+                        {% elif i > queryset.number|add:'-5' and i < queryset.number|add:'5' %}
+                        <li>
+                            <a class="page-link text-secondary lead" style="font-size: 15px;"" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+        
+                {% if queryset.paginator.num_pages > queryset.number|add:'4' %}
+                <li class="page-item text-secondary lead">
+                    <a href="?page={{ queryset.number|add:'5' }}">&hellip;</a>
+                </li>
+
+                {% endif %}
+    
+                {% if queryset.has_next %}
+                <li class="page-item ">
+                    <a class="page-link text-secondary lead" style="font-size: 15px;"" href="?page={{ queryset.next_page_number }}">Siguiente</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled text-secondary lead" >
+                    <span>
+                        <i class="page-link text-secondary lead" style="font-size: 15px;"">Siguiente</i>
+                    </span>
+                </li>
+                {% endif %}
+
+            </div><!-- FIN PAGINADOR -->
+
+            
+        
+    
+       
+</section>
+
+<!-- Bootstrap core JavaScript-->
+<!-- <script src="{% static 'static_bootstrap4/plugins/jquery_3.4.1/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'static_bootstrap4/plugins/bootstrap_4.4.1/popper.min.js' %}"></script>
+<script src="{% static 'static_bootstrap4/plugins/bootstrap_4.4.1/bootstrap.min.js' %}"></script>
+<link href="{% static 'static_bootstrap4/plugins/bootstrap_4.4.1/bootstrap.min.css' %}" rel="stylesheet" /> -->
+
+{% endblock content %}

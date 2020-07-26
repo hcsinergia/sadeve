@@ -1,0 +1,93 @@
+
+          
+{% extends 'base-index.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Upload Image</title>
+  </head>
+  <body>
+  	<div class="container bootstrap snippet">
+    	 <h3>Datos Personales</h3>
+            <form  method="POST">
+            {% csrf_token %}
+            <div>
+                <div class=" span 4">
+                    <div class="col-md-3">
+                    	<label for='{{form.email_1}}'> {{form.socio.label}}</label>
+
+                    	{{form.email_1}}
+						
+                    </div>
+
+                    <div class="col-md-9">
+                      <label for='{{form2.perfil_socio.tel_personal}}'>{{form2.tel_personal.label}}</label>
+                      
+                      {{form2.tel_personal}}
+                    </div>
+                    <div class="col-md-12">
+                      <label for="persona_tipo">Tipo Persona</label>
+                      <input type="text" name="fname"> 
+                    </div>
+                </div>
+
+                <div class="span 4">
+                    <div class="col-md-3">
+                      <label for="entidad">Empresa</label>
+                      <input type="text" name="fname">
+                    </div>
+                    <div class="col-md-9">
+                        <label for="razon_social">Razón Social</label>
+                        <input type="text" name="fname">
+                    </div>
+                    <div class="col-md-12">
+                      <label for="persona_tipo">Tipo Persona</label>
+                      <input type="text" name="fname"> 
+                    </div>
+                </div>
+
+                  <div class="span 4">
+                    <div class="col-md-3">
+                      <label for="entidad">Empresa</label>
+                      <input type="text" name="fname">
+                    </div>
+                    <div class="col-md-9">
+                        <label for="razon_social">Razón Social</label>
+                        <input type="text" name="fname">
+                    </div>
+                    <div class="col-md-12">
+                      <label for="persona_tipo">Tipo Persona</label>
+                      <input type="text" name="fname"> 
+                    </div>
+                  </div>
+                  <div class="span 4">
+                    <div class="col-md-3">
+                      <label for="entidad">Empresa</label>
+                      <input type="text" name="fname">
+                    </div>
+                    <div class="col-md-9">
+                        <label for="razon_social">Razón Social</label>
+                        <input type="text" name="fname">
+                    </div>
+                    <div class="col-md-12">
+                      <label for="persona_tipo">Tipo Persona</label>
+                      <input type="text" name="fname"> 
+                    </div>
+                  </div>
+                
+                  <div class="span 6">
+                    <button type="submit" class="btn btn-primary btn-lg pull-right">Guardar</button>
+                    
+                    <a href="#" class="btn btn-lg pull-right">Cancelar</a>
+                  </div>
+            </form>
+	</div>
+  </body>
+</html>
+
+
+{% endblock content %}

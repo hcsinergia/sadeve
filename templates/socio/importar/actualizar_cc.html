@@ -1,0 +1,27 @@
+{% extends '../../base-index.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="inner-heading">
+                    <h2> Actualizar Cuentas</h2>
+                    <!-- <h2>Bienvenido : {{ request.user.nombre_1}} {{ request.user.apellido_1}}</h2> -->
+                      {% if request.user.not_is_superuser %}
+                        <span class="badge badge-warning">Usted poseé deuda de cuota social</span>
+                      {% endif %}                      
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <form method="post" enctype="multipart/form-data">  
+   {% csrf_token %}  
+   <input type="file" name="xlsfile">
+   <button type="submit">Actualizar</button>  
+  </form>  
+{% endblock %} 

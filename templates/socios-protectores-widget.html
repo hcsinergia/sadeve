@@ -1,0 +1,43 @@
+{% load static %}
+
+  <div class="page-header">
+    <h3> Principales Socios Protectores <small></small> </h3>
+  </div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12">
+
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#insta">Royal Canin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#face">Zoetis</a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="tab-content card-body">
+        <div id="insta" class="tab-pane active">
+          <div class="item"><a href="img/royal-canin.jpg' %}" class="image">
+              <img src="{% static 'img/royal-canin.jpg' %}" alt="..." class="img-fluid"> </a>
+          </div>
+
+
+          Royal Canin es una empresa pionera en el desarrollo de alimentos de alta calidad para perros y gatos,
+          enfocados en sus necesidades específicas.
+
+        </div>
+        <div id="face" class="tab-pane">
+          <div class="item"><a href="img/zoetis.jpg' %}" width="150" height="60" data-fancybox="gallery"
+              class="image"><img src="{% static 'img/zoetis.jpg' %}" alt="..." class="img-fluid"> </a> </div>
+
+
+          Zoetis Inc. es el mayor productor mundial de medicamentos y vacunas
+          para mascotas y ganado.
+
+        </div>
+      </div>
+    </div>
+  </div>

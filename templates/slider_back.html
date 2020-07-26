@@ -1,0 +1,68 @@
+{% load static %}
+
+<section id="featured">
+    <!-- start slider -->
+    <!-- Slider -->
+    <div id="nivo-slider">
+        <div class="nivo-slider">
+            <!-- Slide #1 image -->
+            <!-- <img src="{% static 'index-look/img/slides/nivo/sadeve-slide.png' %}" alt="" title="#caption-3" /> -->
+            <!-- <img src="{% static '../media/01.png' %}" alt="" title="#caption-3" /> -->
+            <img src="{{ slider_data.img1.url }}" width="720" alt="" title="#caption-1" class="img-polaroid" />
+            <!-- Slide #2 image -->
+            <!-- <img src="{% static 'index-look/img/slides/nivo/zoetis-slide.png' %}" alt="" title="#caption-2" /> -->
+            <!-- <img src="{% static '../media/02.png' %}" alt="" title="#caption-2" /> -->
+            <img src="{{ slider_data.img2.url }}" width="720" alt="" title="#caption-2" class="img-polaroid" />
+            <!-- Slide #3 image -->
+            <!-- <img src="{% static 'index-look/img/slides/nivo/royal-canin-slide.png' %}" alt="" title="#caption-1" /> -->
+            <!-- <img src="{% static '../media/03.png' %}" alt="" title="#caption-1" /> -->
+            <img src="{{ slider_data.img3.url }}" width="720" alt="" title="#caption-3" class="img-polaroid" />
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 d-none d-md-block">
+                    <!-- Slide #1 caption -->
+                    <div class="nivo-caption" id="caption-3">
+                        <div>
+                            <h2>¿Que es <strong>SADEVE?</strong></h2>
+                            <p>
+                                Los propósitos de la SADEVE son: promover y divulgar la dermatología dentro de las Ciencias Veterinarias,
+                                como así también estimular investigaciones y el estudio de la misma en el ámbito universitario
+                                como en la actividad particular de los profesionales que abarcan esta especialidad.
+
+
+                            </p>
+                            <a href="#" class="btn btn-theme">Saber más</a>
+                        </div>
+                    </div>
+                    <!-- Slide #2 caption -->
+                    <div class="nivo-caption" id="caption-1">
+                        <div>
+                            <h2>Socio <strong>Protector</strong></h2>
+                            <p>
+                                Royal Canin es una empresa pionera en el desarrollo de alimentos de alta calidad para perros y gatos,
+                                enfocados en sus necesidades específicas.
+                            </p>
+                            <a href="http://www.royal-canin.com.ar/" class="btn btn-theme">Ir a la página</a>
+                        </div>
+                    </div>
+                    <!-- Slide #3 caption -->
+                    <div class="nivo-caption" id="caption-2">
+                        <div>
+                            <h2>Socio <strong>Protector</strong></h2>
+                            <p>
+                                Zoetis Inc. es el mayor productor mundial de medicamentos y vacunas
+                                para mascotas y ganado.
+
+                            </p>
+                            <a href="https://ar.zoetis.com/" class="btn btn-theme">Ir a la página</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end slider -->
+</section>

@@ -1,0 +1,130 @@
+{% extends '../base-index.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="callaction ">
+
+  <div class="container ">
+    
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 clearfix mt-2" style="background-color: lightgrey;">
+      <a class="m-2 float-right text-muted" href="/socio/cc_asiento/"><small><strong>Mi perfil</small></strong></a>
+      <a class="m-2 float-right text-muted" href="{% url 'accounts:password_change' %}"><small><strong>Cambiar contraseña</small></strong></a>
+    </div>
+    <br>
+      <div class="row">
+        
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 clearfix ">
+          <div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 bd-secondary ">
+            <h5 class="display-4 mt-2" style="font-size: 40px;">Área de socios</h5>
+            <hr/>
+            
+            <h3 class="display-4 mt-3" style="font-size: 30px;">Ficha del socio</h3>
+            <h3 class="display-4 text-muted" style="font-size: 15px;"><small><strong>Número de socio: </strong></small><small>{{ request.user.id_socio }}</small></h3>
+            
+            
+            {% if request.user.dni is not None  %}
+              <h3 class="display-4 text-muted" style="font-size: 15px;"><small><strong>DNI: </strong></small><small>{{ request.user.dni }} </small></h3>   
+            {% endif %}
+
+            {% if request.user.cuit is not None  %}
+            <h3 class="display-4 text-muted" style="font-size: 15px;"><small><strong>CUIT: </strong></small><small>{{ request.user.cuit }} </small></h3>
+            {% endif %}
+            <h3 class="display-4 text-muted" style="font-size: 15px;"><small><strong>Usuario: </strong></small><small>{{ request.user.email }}</small></h3>
+            
+            <hr/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row border">
+        
+        <div class="col-xl-2 col-lg-2 d-none d-lg-block d-xl-block clearfix bd-secondary" style="background-color: white;">
+          
+        </div>
+        
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 clearfix mt-2  ">
+
+
+
+      <div class="row m-2">
+        <form method="POST"> 
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="nombre_1">Primer Nombre</label>
+              {{ form.nombre_1 }}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="nombre_2">Segundo Nombre</label>
+              {{ form.nombre_2 }}
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="apellido_1">Primer Apellido</label>
+              {{ form.apellido_1 }}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="nombre_2">Segundo Apellido</label>
+              {{ form.apellido_2 }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="matricula">Matricula</label>
+              {{ form2.matricula }}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="especialidad">Especialidad</label><br>
+              <div class="form-control col-md-6">
+              {{ form2.especialidad_principal }}
+            </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="tel_personal">Teléfono Personal</label>
+              {{ form2.tel_personal }}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="tel_laboral">Teléfono Laboral</label>
+              {{ form2.tel_laboral }}
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="domicilio_postal">Domicilio Postal</label>
+              {{ form2.domicilio_postal }}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="domicilio_fiscal">Domicilio Fiscal</label>
+              {{ form2.domicilio_fiscal }}
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="domicilio_postal">E-mail Secundario</label>
+              {{ form2.email_2 }}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="domicilio_fiscal">Observación</label>
+              {{ form2.observacion}}
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-secondary float-right mb-2">Guardar</button>
+        </form>
+      </div>
+
+  </div>
+  
+    </div>
+</section>
+<br>
+{% endblock %}

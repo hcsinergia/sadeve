@@ -1,0 +1,113 @@
+
+
+
+
+{% extends 'base-index.html' %}
+{% load static %}
+{% block content %}
+
+ <section id="content">
+
+
+		<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 bd-secondary ">
+
+			<h5 class="display-4 mt-3 ml-1" style="font-size: 40px;">Contacto SADeVe</h5>
+			<hr/>
+
+		</div>
+
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.7430042247347!2d-57.940002784583804!3d-34.91289838038051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e616345491df%3A0x83674a4bc228ee1a!2sEEST+No.+6+Albert+Thomas!5e0!3m2!1ses!2sar!4v1553132503772" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.250996703291!2d-58.439638549434676!3d-34.59781408036506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca74884e1cff%3A0x7d5205d97a51d0e2!2sDermatolog%C3%ADa%20Veterinaria!5e0!3m2!1ses!2sar!4v1581767721735!5m2!1ses!2sar" width="100%" height="388" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.498976311233!2d-57.94560268486823!3d-34.91902088175598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e62372ffc7b9%3A0x2cbe1fdc20404750!2sCalle%2058%20590%2C%20B1900%20La%20Plata%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1582142226194!5m2!1ses!2sar" width="100%" height="388" f frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      
+      
+      <div class="container">
+            <div class="m-1">
+                <h5 class="display-4 m-2" style="font-size: 30px;">Nuestras vías de comunicación</h5>
+                {% include 'contact/partials/_flash_messages.html' %}
+            </div>
+
+            <div class="row">
+            
+            
+
+        
+
+
+        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 m-1 clearfix mt-2 mb-5">
+
+            <div class="alert bg-light col-sm-12 col-md-12 col-lg-12 col-xl-12 clearfix mt-1 mb-2">
+                <h5 class="display-4 mt-2 mb-2 text-justify" style="font-size: 20px;">Complete el formulario</h5>
+                <p class="lead" style="font-size: 12px;">
+                    Te solicitamos que nos brindes la mayor cantidad de detalles en el mensaje a fin de elaborar una mejor respuesta.
+                </p>
+                <p class="lead" style="font-size: 12px;"><u>Pronto nos pondrémos en contacto.</u></p>
+              
+            </div> 
+            
+            <form role="form" action="" method="post" >
+                {% csrf_token %}
+                    <!-- {{form.as_table}} -->
+
+                <input type='text' class='form-control ' id= 'contact_name' name= 'contact_name' placeholder='Ingrese su Nombre'>
+                <input type='email' class='form-control mt-2' id= 'contact_email' name= 'contact_email' placeholder='Ingrese su email'>
+                <textarea class="form-control mt-2" row='3' id= 'content' name= 'content' placeholder='Ingrese el mensaje'></textarea>
+            
+                <!-- <input type='text' class='form-control' id= 'contact_name' name= 'contact_name' placeholder='nombre' value='{{ form.contact_name.value | safe | striptags }}'>
+                <input type='email' class='form-control' id= 'contact_email' name= 'contact_email' placeholder='name@example.com' value='{{ form.contact_email.value | safe | striptags }}'>
+                <textarea class="form-control" row='3' id= 'content' name= 'content' placeholder="Ingrese el mensaje" value='{{ form.content.value | safe | striptags }}'></textarea> -->
+                
+                
+                <button type="submit" class="btn btn-secondary w-50% mt-3"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+            </form>
+        </div>
+
+        <div class="col-xl-1 col-lg-1 d-none d-lg-block d-xl-block clearfix bd-secondary" style="background-color: white;">
+          
+        </div>
+                
+
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 m-1 clearfix mt-2 mb-5">
+        
+            <!-- <p class="lead" style="font-size: 15px;"><i class="fas fa-home mr-3"></i><strong>Dirección Postal: </strong> --> 
+            <p class="lead" style="font-size: 15px;"><i class="fas fa-home"></i>
+              Calle 58 | # 590 | La Plata |
+              CP 1900 |
+              Bs.As. | Aregentina
+            </p>
+             
+
+            <!-- <p class="lead" style="font-size: 15px;"><i class="fas fa-envelope mr-3"></i><strong>E-mail's: </strong> --> 
+            <p class="lead" style="font-size: 15px;"><i class="fas fa-envelope "></i>
+                info@sadeve.com.ar | 
+                socios@sadeve.com.ar
+              </p>
+                
+
+            <p class="lead" style="font-size: 15px;"><i class="fas fa-phone"></i>
+              
+                + 54  11 000 0000 | 
+                + 54 9 221 000 0000
+              </p>
+            
+              <p class="lead" style="font-size: 15px;"><i class="fas fa-print "></i>
+                
+                    + 54 221 000 0000
+            </p>
+        </div>
+
+
+
+
+
+
+
+
+
+                
+        </div>
+      </div>
+    </section>
+
+{% endblock content %}

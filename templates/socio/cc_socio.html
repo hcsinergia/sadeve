@@ -1,0 +1,51 @@
+{% extends '../base-index.html' %}
+{% load static %}
+{% block content %}
+
+  <section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="inner-heading">
+                    <!-- <h2> Perfil de socio </h2> -->
+                    <h2>Bienvenido : {{ request.user.nombre_1}} {{ request.user.apellido_1 }} </h2>
+                    	<!-- {% if request.user.not_is_superuser %}
+                    		<span class="badge badge-warning">Usted poseé deuda de cuota social</span>
+                    	{% endif %}     -->                  
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+<hr>
+
+
+        {% if asientos %}
+        <div class="container">
+          <h3>Cuenta Corriente</h3>
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <!-- <th>Item</th> -->
+                    <th>Fecha Publicado</th>
+                    <th>Concepto</th>
+                    <th>Estado</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>         
+            <tbody>
+              {% for asiento in asientos %}
+                <tr class="table-success">
+                    <!-- <td>{{ asiento.id_cc }}</td> -->
+                    <td>{{ asiento.fecha_publicado }}</td>
+                    <td>{{ asiento.concepto }}</td>
+                    <td>{{ asiento.cc_estado}}</td>
+                    <td>{{ asiento.valor}}</td>   
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        {% endif %}
+</div>
+{% endblock content %}

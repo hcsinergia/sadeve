@@ -1,0 +1,59 @@
+{% extends '../base-index.html' %}
+{% load static %}
+
+
+{% block content %}
+<style type="text/css">
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .h3{
+    text-align: center;
+  }
+</style>
+
+
+  <section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="inner-heading">
+                    <h2> Importar Socios </h2>
+                    <!-- <h2>Bienvenido : {{ request.user.nombre_1}} {{ request.user.apellido_1}}</h2> -->
+                      {% if request.user.not_is_superuser %}
+                        <span class="badge badge-warning">Usted poseé deuda de cuota social</span>
+                      {% endif %}                      
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+<br>
+  <form method="post" enctype="multipart/form-data">  
+   {% csrf_token %}  
+   <input type="file" name="xlsfile">
+   <button type="submit">Subir</button>  
+  </form>  
+{% endblock %} 

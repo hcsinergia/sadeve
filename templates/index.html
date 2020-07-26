@@ -1,0 +1,96 @@
+{% extends 'base-index.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'slider.html' %}
+
+
+
+
+
+
+<section id="content">
+  <div class="container">
+    <div class="row">
+
+      {% include 'index-sobre-nosotros.html' %}
+      {% include 'index-divider.html' %}
+      {% include 'index-opciones-iconos.html' %}
+
+    </div>
+    
+    {% include 'index-divider.html' %}
+
+  
+
+    <!-- Sección artículos recientes -->
+
+    <div class="row">
+
+      <div class="col-12">
+        <!-- <h4 class="heading">Artículos destacados <span class="highlight"><strong></strong></span></h4> -->
+        <!-- <h5 class="display-4">Artículos destacados</h5> -->
+        <h5 class="display-4" style="font-size: 40px;">Artículos destacados</h5>
+        <br>
+
+      <div class="row">
+
+        {% for obj in featured_posts %}
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 clearfix">
+              
+                <div class="card w-100 bg-light"><!-- inicio de la tarjeta -->
+
+                  <div class="card-header">
+                    <!-- <h3 class="card-title lead"><a href="{{ obj.get_absolute_url }}"> {{ obj.title }} </a></h3> -->
+                  </div>
+                  <img class="img-fluid" src="{{ obj.thumbnail.url }}" alt="">
+                <div class="card-body ">
+                  <a href="{{ obj.get_absolute_url }}" class="lead text-secondary" style="font-size: 20px;"> {{ obj.title }} </a>
+                  <hr />
+                  <p class="lead" style="font-size: 15px;"> {{ obj.overview }} </p>
+                  <p><a href="{{ obj.get_absolute_url }}" class="text-secondary"><i class="fas fa-link"></i> Leer artículo</a></p>
+                </div>  
+                <div class="card-footer">
+                  <!-- <div class="row">
+                    <a href="#" class="font-weight-light text-secondary"><i class="fas fa-user" style="font-size: 10px;"></i><small>{{ obj.timestamp | timesince }}</small></a>&nbsp;
+                    <i class="fas fa-user"></i>&nbsp;<a href="#"class="font-weight-light text-secondary"><small>Admin</small> </a>&nbsp;&nbsp;
+                    <i class="fas fa-user"></i>&nbsp;<a href="#"class="font-weight-light text-secondary"> <small>Artículos</small></a> &nbsp;
+                  </div> -->
+                  
+
+                  <ul class="fa-ul">
+                    <li><i class="fa-li fas fas fa-user text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Publicó: {{ obj.author.user.username }}</p></li>
+                    <li><i class="fa-li fas fas fa-clock text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Fecha y hora: {{ obj.timestamp }}</p></li>
+                    
+                    
+                    <!-- <li><i class="fa-li fas fa-spinner fa-pulse"></i>Artículos</li> -->
+                   
+                  </ul>
+                  
+
+        
+                  <!-- <a href="#" class="pull-right">Continue reading <i class="icon-angle-right"></i></a> -->
+                  
+                </div>
+                
+              </div> <!-- fin de la tarjeta -->
+              <br>
+              
+          </div>
+
+          {% endfor %}
+      </div>
+      </div>
+    </div>
+
+  <!-- Fin seccion articulos recientes -->
+
+    {% include 'index-divider.html' %}
+    {% comment %}
+      {% include 'index-socios-acompanian.html' %}
+    {% endcomment %}
+  </div>
+</section>
+
+{% endblock content %}

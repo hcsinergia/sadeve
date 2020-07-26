@@ -1,0 +1,7 @@
+{{ contact_name }}
+Envía
+por medio del formulario web
+{{ form_content|safe|striptags }}
+
+Responder al e-mail:
+{{ contact_email }}

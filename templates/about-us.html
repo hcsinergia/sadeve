@@ -1,0 +1,540 @@
+{% extends 'base-index.html' %}
+{% load static %}
+{% block content %}
+<!-- Blog 2 -->
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <div class="inner-heading">
+                    <br>
+                    <!-- <h2>Sobre nosotros</h2> -->
+                </div>
+            </div>
+            <div class="span8">
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="col-12 mb-5">
+    <div class="container">
+        <!-- <h4 class="display-4">Bienvenido a SADeVe</h4> -->
+        <h4 class="display-4" style="font-size: 40px;">Bienvenido a SADeVe</h4>
+
+        <hr />
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 clearfix ">
+                <!-- <h2> Bienvenido a <strong> SADEVE</strong></h2> -->
+                
+                <!--h2>{{ about_data.title }}</h2-->
+                <!-- <div class="w-100 container-fluid border text-justify text-muted"> -->
+                <div class=" text-justify display-4" style="font-size: 15px;">
+                    <p>
+                        <!-- {{ about_data.about_description | safe | linebreaks}} -->
+                        {{ about_data.about_description | safe }}
+
+                    </p>
+                </div>
+            </div>
+
+           
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 clearfix "><!-- inicio de la tarjeta -->
+
+                <!-- <div class="card-header">
+                    <h3 class="card-title lead">Socios Protectores<a href="{{ obj.get_absolute_url }}"> {{ obj.title }} </a></h3>
+                </div> -->
+                <h5 class="display-4" style="font-size: 20px;">Socios Protectores</h5>
+                
+
+                <!-- <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"> -->
+                    <!-- <div class="card-body"> -->
+     
+                    <!-- <div style="width: 100%;"> -->
+                        
+                        <!-- INDICADORES -->
+<div id="sadeve_slider" class="carousel slider" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="sadeve_slider" data-slide-to="0" class="active"></li>
+        <li data-target="sadeve_slider" data-slide-to="1" ></li>
+        <li data-target="sadeve_slider" data-slide-to="2" ></li>
+        <li data-target="sadeve_slider" data-slide-to="3" ></li>
+    </ul>
+
+   <!-- IMAGENES -->
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="{{ slider_data.img1.url }}"  class="img-fluid" />
+            <div class="carousel-caption">
+                <!-- <h3 class="float-right">PRIMER TITULO</h3>
+                <p>Esta es la descripcion de la primera imagen</p> -->
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{{ slider_data.img2.url }}" class="img-fluid" />
+            <div class="carousel-caption">
+                <!-- <h3>SEGUNDO TITULO</h3>
+                <p>Esta es la descripcion de la segunda imagen</p> -->
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{{ slider_data.img3.url }}" class="img-fluid"  />
+            <div class="carousel-caption">
+                <!-- <h3 class="float-left">TERCER TITULO</h3>
+                <p>Esta es la descripcion de la tercera imagen</p> -->
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{{ slider_data.img4.url }}" class="img-fluid"  />
+            <div class="carousel-caption">
+                <!-- <h3 class="float-left">TERCER TITULO</h3>
+                <p>Esta es la descripcion de la tercera imagen</p> -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CONTROLES -->
+    <a href="#sadeve_slider" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+    <a href="#sadeve_slider" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+
+</div>
+
+                    <!-- <div class="card-footer">
+
+                    </div> -->
+                
+                <!-- </div> -->
+            </div> <!-- fin card -->
+        </div> <!-- fin row -->
+
+
+       
+
+
+
+        
+
+
+
+        <!-- divider -->
+        <div class="row">
+            <div class="col-12">
+                <div class="solidline">
+                </div>
+            </div>
+        </div>
+        <!-- end divider -->
+        <div class="row">
+            <div class="col-12">
+                <!-- <h4> <strong> SADEVE </strong> Comisión Directiva</h4> -->
+                <h4 class="display-4 mt-4" style="font-size: 40px;">Comisión Directiva</h4>
+                <hr />
+            </div>
+        </div>
+
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.president.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.president.first_name }} {{ about_data.president.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.president.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.vicepresident.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.vicepresident.first_name }} {{ about_data.vicepresident.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.vicepresident.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.secretary.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.secretary.first_name }} {{ about_data.secretary.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.secretary.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--fin row-->
+            
+            <br>
+            
+            <div class="row">
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.treasurer.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.treasurer.first_name }} {{ about_data.treasurer.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.treasurer.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.treasurer.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.vocal_jr.first_name }} {{ about_data.vocal_jr.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.vocal_jr.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.treasurer.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.vocal_jr.first_name }} {{ about_data.vocal_jr.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.vocal_jr.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--fin row-->
+
+            <br>
+            
+            <div class="row">
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.treasurer.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.accounter_sr_1.first_name }} {{ about_data.accounter_sr_1.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.accounter_sr_1.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.treasurer.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.accounter_sr_2.first_name }} {{ about_data.accounter_sr_2.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.accounter_sr_2.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                    <div class="card" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ about_data.treasurer.profile_picture.url }}"" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <!-- <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p> -->
+                            <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.accounter_sr_2.first_name }} {{ about_data.accounter_sr_2.last_name  }}</h5>
+                            <p class="card-text">
+                                {{ about_data.accounter_sr_2.chair }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--fin row-->
+
+                <br>
+                
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 clearfix">
+                        <div class="card" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{ about_data.treasurer.profile_picture.url }}"" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                <!-- <p class="lead">
+                                    <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                                </p> -->
+                                <h5 class="card-title display-4" style="font-size: 15px;">{{ about_data.accounter_jr.first_name }} {{ about_data.accounter_jr.last_name  }}</h5>
+                                <p class="card-text">
+                                    {{ about_data.accounter_jr.chair }}
+                                </p>
+                                <p class="card-text"><small class="text-muted">SADeVe</small></p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!--fin row-->
+            </div> <!--fin container-->
+                
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+
+
+
+
+
+
+                    <!-- <div class="col-3">
+                        <img src=" {{ about_data.president.profile_picture.url }}" width="720" alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.president.first_name }}</strong> {{ about_data.president.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.president.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="span3">
+                        <img src=" {{ about_data.vicepresident.profile_picture.url }}" width="720"  alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.vicepresident.first_name }}</strong> {{ about_data.vicepresident.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.vicepresident.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="span3">
+                        <img src=" {{ about_data.secretary.profile_picture.url }}" width="720" alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.secretary.first_name }}</strong> {{ about_data.secretary.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.secretary.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="span3">
+                        <img src=" {{ about_data.treasurer.profile_picture.url }}" width="720" alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.treasurer.first_name }}</strong> {{ about_data.treasurer.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.treasurer.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="span3">
+                        <img src=" {{ about_data.vocal_sr.profile_picture.url }}" width="720" alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.vocal_sr.first_name }}</strong> {{ about_data.vocal_sr.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.vocal_sr.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="span3">
+                        <img src=" {{ about_data.vocal_jr.profile_picture.url }}" width="720" alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.vocal_jr.first_name }}</strong> {{ about_data.vocal_jr.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.vocal_jr.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="span3">
+                        <img src=" {{ about_data.accounter_sr_1.profile_picture.url }}" width="720" alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.accounter_sr_1.first_name }}</strong> {{ about_data.accounter_sr_1.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.accounter_sr_1.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="span3">
+                        <img src=" {{ about_data.accounter_sr_2.profile_picture.url }}" width="720" alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.accounter_sr_2.first_name }}</strong> {{ about_data.accounter_sr_2.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.accounter_sr_2.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="span3">
+                        <img src=" {{ about_data.accounter_jr.profile_picture.url }}" width="720" alt="" class="img-polaroid" />
+                        <div class="roles">
+                            <p class="lead">
+                                <strong>{{ about_data.accounter_jr.first_name }}</strong> {{ about_data.accounter_jr.last_name  }}
+                            </p>
+                            <p>
+                                {{ about_data.accounter_jr.chair }}
+                            </p>
+                        </div>
+                    </div> -->
+            
+
+            <!-- divider -->
+            <!-- <div class="row">
+                <div class="span12">
+                    <div class="solidline">
+                    </div>
+                </div>
+            </div> -->
+
+<!-- end divider -->
+<hr />
+<div class="solidline"></div>
+
+    <!-- <div class="container mb-4">
+        <div class="span12">
+            <div class="inner-heading">
+                
+                <h5 class="display-4 mt-4 mb-4" style="font-size: 40px;">Contactese</h5>
+                
+                <h8> <strong>Información: </strong> infosadeve@sadeve.org</h8>
+                <br>
+                <h8> <strong>Directorio: </strong> directorio@sadeve.org</h8>
+                <br>
+                <h8> <strong>Comunicacion: </strong> comunicacion@sadeve.org</h8>
+                
+            </div>
+        </div>
+    </div> -->
+</div>
+</section>
+
+
+{% endblock content %}

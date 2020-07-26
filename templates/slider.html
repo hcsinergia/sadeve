@@ -1,0 +1,79 @@
+{% load static %}
+
+<div style="width: 100%;">
+<!-- INDICADORES -->
+<div id="sadeve_slider" class="carousel slider" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="sadeve_slider" data-slide-to="0" class="active"></li>
+        <li data-target="sadeve_slider" data-slide-to="1" ></li>
+        <li data-target="sadeve_slider" data-slide-to="2" ></li>
+        <li data-target="sadeve_slider" data-slide-to="3" ></li>
+    </ul>
+
+   <!-- IMAGENES -->
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="{{ slider_data.img1.url }}"  class="img-fluid" />
+            <div class="col-xl-12 d-none d-lg-block d-xl-block  clearfix">
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.4);">
+                    <!-- <h3 class="float-right">PRIMER TITULO</h3>-->
+                    <h2 class="lead" style="font-size: 30px;">Sociedad de Dermatología Veterinaria Argentina</h2>
+                    <h5 class="display-4" style="font-size: 20px;">Institución científica fundada en septiembre de 2009 </h5>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{{ slider_data.img2.url }}" class="img-fluid" />
+            <div class="col-xl-12 d-none d-lg-block d-xl-block  clearfix">
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.4);">
+                    <!-- <h3 class="float-right">PRIMER TITULO</h3>-->
+                    <h6 class="lead" style="font-size: 20px;">SADeVe congrega médicos veterinarios interesados en el estudio y desarrollo de la dermatología</h6>
+                    <h4 class="lead" style="font-size: 20px;">participan socios activos, vitalicios, honorarios, protectores y adherentes </h4> 
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{{ slider_data.img3.url }}" class="img-fluid"  />
+            <div class="col-xl-12 d-none d-lg-block d-xl-block" >
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.4);">
+                    <!-- <h3 class="float-right">PRIMER TITULO</h3>-->
+                    <h3 class="lead" style="font-size: 30px;">Nuestro propósito</h3>
+                    <p class="lead" style="font-size:15px;">Promover y divulgar la dermatología dentro de las Ciencias Veterinarias, como así también estimular investigaciones y el estudio de la misma en el ámbito universitario como en la actividad particular de los profesionales que abarcan esta especialidad </p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{{ slider_data.img4.url }}" class="img-fluid"  />
+            <div class="col-xl-12 d-none d-lg-block d-xl-block" >
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.4);">
+                    <!-- <h3 class="float-right">PRIMER TITULO</h3>-->
+                    <h3 class="lead" style="font-size: 30px;">Socios Protectores</h3>
+                    
+                        <!-- <a href="https://www.zoetis.com"> <img src="{% static 'img/socios_footer_zoetis.jpg' %}" width="100px" class="rounded-circle"></a> -->
+                        <!-- <a href="https://www.royalcanin.com"> <img src="{% static 'img/socios_footer_royal.jpg' %}" width="100px" class="rounded-circle"></a>  -->
+                        <a href="https://ar.zoetis.com"> <img src="{% static 'img/socios_footer_zoetis.jpg' %}" width="100px" class="rounded-circle"></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#"> <img src="{% static 'img/mas.jpg' %}" width="30px" class="rounded-circle"></a>
+                        <a href="https://www.sadeve.com.ar"> <img src="{% static 'img/sadeve_logo_solo.png' %}" width="200px" class="rounded-circle"></a>
+                        <a href="#"> <img src="{% static 'img/mas.jpg' %}" width="30px" class="rounded-circle"></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="https://www.royalcanin.com"> <img src="{% static 'img/socios_footer_royal.jpg' %}" width="100px" class="rounded-circle"></a> 
+                        <!-- <a href="https://www.zoetis.com"> <img src="{% static 'img/socios_footer_zoetis.jpg' %}" width="100px" class="rounded-circle"></a> -->
+                        <!-- <a href="https://www.royalcanin.com"> <img src="{% static 'img/socios_footer_royal.jpg' %}" width="100px" class="rounded-circle"></a>  -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CONTROLES -->
+    <a href="#sadeve_slider" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+    <a href="#sadeve_slider" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+
+</div>
+</div>

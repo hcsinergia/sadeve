@@ -1,0 +1,101 @@
+{% load static %}
+
+    <div style="width: 100%;">  
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a href="#" class="navbar-brand" > 
+                <img src="{% static 'img/sadeve_logo_header_2.png' %}" style="width:150px; height:60px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"> 
+            <span class="navbar-toggler-icon"></span>
+            </button>    
+            
+            <div class="collapse navbar-collapse justify-content-end mr-5" id="menu">
+            <!-- <ul class="navbar-nav float-right"> -->
+            <ul class="navbar-nav text-right pt10">
+                <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop">Nosotros</a>
+                        <div class="dropdown-menu ">
+                            <a href="{% url 'estatuto' %}" class="dropdown-item">Estatuto</a>
+                            <a href="{% url 'about' %}" class="dropdown-item">SADEVE</a>
+                            <a href="{% url 'gcalendar:eventos' %}" class="dropdown-item">Congresos / Eventos</a>
+                            <!-- <a href="{% url 'gcalendar:calendario' %}" class="dropdown-item">Calendario</a> -->
+                            <!-- <a href="#" target="popup" onclick="window.open('{% static '/files/estatuto.pdf' %}','popup','width=600,height=600'); return false;">Estatuto</a> -->
+                        </div>
+                </li>
+
+                
+                  
+
+                
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop">Artículos</a>
+                        <div class="dropdown-menu ">
+                            {% if not user.is_authenticated %}
+                                <a href=" {% url 'post-list' %}" class="dropdown-item"> Artículos </a> 
+                                <a href=" {% url 'presentation-list' %}" class="dropdown-item"> Presentaciones</a>
+                            {% else %}
+                                <a href=" {% url 'post-list' %}" class="dropdown-item"> Artículos </a> 
+                                <a href=" {% url 'presentation-list' %}" class="dropdown-item"> Presentaciones en Jornadas</a>
+                                <a href=" {% url 'article-list' %}" class="dropdown-item"> Publicaciones</a>
+                            {%endif%}
+                        </div>
+                </li>
+
+                
+
+                {% if not user.is_authenticated %}
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop">Socios</a>
+                    <div class="dropdown-menu ">
+                        <a href="{% url 'accounts:login' %}" class="dropdown-item"> Ingresar </a> 
+                    </div>
+                </li>
+                                
+                {% else %}
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop">{{ request.user.username}}</a>
+                        <div class="dropdown-menu ">
+                            <!-- <a href="/socio/perfil/{{ request.user.perfil }}" class="dropdown-item"> Perfil </a>  -->
+                            <a href="/socio/cc_asiento/" class="dropdown-item"> Perfil </a> 
+                        {% if not user.is_superuser%}
+                            <a href="{% url 'accounts:logout' %}" class="dropdown-item"> Salir </a>
+                        </div>
+                    </li>        
+                        {% else %}
+                            <a href="{% url 'accounts:logout' %}" class="dropdown-item"> Salir </a>
+                        </div>
+                    </li>
+                        {%endif%}
+                                
+                {%endif%}
+
+                {% if user.is_authenticated %}
+
+                    
+
+                    {% if user.is_superuser%}
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop">Administrar</a>
+                                <div class="dropdown-menu ">
+                                    <a href=" {% url 'socio:actualizar_asiento' %}" class="dropdown-item"> Actualizar asientos </a> 
+                                    <a href=" {% url 'accounts:register' %}" class="dropdown-item"> Registrar usuario</a>
+                                </div>
+                        </li>
+
+                    {%endif%}
+                {%endif%}
+
+                <li class="nav-item"><a href="{% url 'contact:contact' %}" class="nav-link">Contacto</a></li>
+            
+            </ul>
+            </div>
+        </nav> 
+    </div>
+
+
+   
+                     

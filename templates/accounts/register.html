@@ -1,0 +1,95 @@
+{% extends '../base-index.html' %}
+{% load static %}
+<!-- <a class="nav topnav bold" href="/socio/perfil/{{ request.user.perfil }}"> Volver </a> -->
+{% block content %}
+<style type="text/css">
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .h3{
+    text-align: center;
+  }
+</style>
+
+<section class="callaction">
+  <div class="container mt-4">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 clearfix mt-2" style="background-color: lightgrey;">
+        <a class="m-2 float-right text-muted" href="/socio/perfil/{{ request.user.perfil }}"><small><strong>Editar mis datos</small></strong></a>
+        <a class="m-2 float-right text-muted" href="{% url 'accounts:password_change' %}"><small><strong>Cambiar contraseña</small></strong></a>
+    </div>
+      <br>
+    
+    
+    <div class="row "> <!-- row -->
+      
+      <div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 bd-secondary ">
+        <h5 class="display-4  ml-2" style="font-size: 40px;">Ádministación</h5>
+        <hr/>
+      </div>
+      
+    </div>
+  
+    <div class="row mt-1">
+      <div class="col-xl-4 col-lg-4 d-none d-lg-block d-xl-block clearfix bd-secondary">
+      </div>
+    
+          <!-- <div class="col-4  mt-5"> -->
+      
+
+      <div class="col-sm-12 col-md-12 col-xl-4 col-lg-4 clearfix bd-secondary mb-4">
+        <h3 class="display-4 mt-1 ml-2 mr-3 " style="font-size: 30px;">Registrar Usuari@</h3>
+        <hr/>
+         
+        <form method="post" class="form-signin">{% csrf_token %}
+          
+            <input type="email" id="inputEmail" name="email" class="form-control form-control w-100 mt-2" placeholder="Email" required autofocus>
+          
+            <input type="text" id="inputUsername" name="username" class="form-control form-control w-100 mt-2" placeholder="Usuario" required> 
+            <p class="text-muted"><small>!! Utilizar el mismo email para el usuario</small></p>
+          
+            <input type="password" id="inputPassword1" name="password1" class="form-control form-control w-100 mt-2" placeholder="Contraseña" required>
+          
+            <input type="password" id="inputPassword2" name="password2" class="form-control form-control w-100 mt-2" placeholder="Confirmar Contrasela" required>
+          
+            <p>
+              {% for field in registration_form %}
+                {% for error in field.errors %}
+                      <p style="color: red">{{ error }}</p>
+                {% endfor %}
+              {% endfor %}
+              {% if registration_form.non_field_errors %}
+                <div style="color: red">
+                  <p>{{registration_form.non_field_errors}}</p>
+                </div>
+              {% endif %}
+            </p>
+            <button class="btn btn-secondary w-100 mt-3 " type="submit">Registrar</button>
+          </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock content %}

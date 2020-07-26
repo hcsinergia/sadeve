@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+  Oderfla | Registro de Proveedor
+{% endblock titulo %}
+
+{% block body %}
+<form method="POST">
+  {% csrf_token %}
+  <div class="card">
+      <div class="card-header">
+          <strong>Formulario de Registro de empleado</strong>
+      </div>
+      <div class="card-body card-block">
+        {{ form.as_p }}
+      </div>
+  </div>
+  <button type="submit" class="btn btn-success">Registrar</button>
+  <a href="{% url 'usuario:listar_usuario' %}" class="btn btn-primary">Cancelar</a>
+</form>
+
+{% endblock body %}

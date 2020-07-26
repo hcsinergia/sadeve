@@ -1,0 +1,32 @@
+{% extends '../base-index.html' %}
+{% load static %}
+
+{% block content %}
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="inner-heading">
+                    <h2> Calendario de congresos</h2>
+                    <!-- <h2>Bienvenido : {{ request.user.nombre_1}} </h2> -->
+                    	{% if request.user.not_is_superuser %}
+                    		<span class="badge badge-warning">Usted poseé deuda de cuota social</span>
+                    	{% endif %}                      
+                   
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+	<div class="row row-centered pos">
+ 		<div class="col-lg-8 col-centered">
+			<div class="well">
+				<iframe src="https://calendar.google.com/calendar/b/1/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FArgentina%2FBuenos_Aires&amp;src=YjVtMmJjbWRtMTdtdGtsYW5hdjB0ZGlsNm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237986CB&amp;showPrint=0&amp;showTz=0&amp;showCalendars=0" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %} 

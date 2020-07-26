@@ -1,0 +1,85 @@
+{% extends '../../base-index.html' %}
+{% load static %}
+
+{% block content %}
+<style type="text/css">
+  #contenedor{
+    background: #930;
+    padding: 10px;
+    overflow: hidden;
+  }
+  #izquierda{
+    float: left;
+    color: #fff;
+    padding: 10px;
+    width:300px;
+    margin: 40px;
+    /*background: #039*/
+  }
+  #derecha{
+    float: left;
+    #color: #fff;
+    padding: 10px;
+    /*width:300px;*/
+    margin: 40px;
+    background: #FFF
+  }
+</style>
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="inner-heading">
+                    <h2> Actualizar Asientos </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+<div id="izquierda">
+  
+</div>
+<div id="derecha">
+  <h4> Seleccione archivo fuente </h4>
+  <form method="post" enctype="multipart/form-data">  
+   {% csrf_token %}  
+   <input type="file" name="xlsfile">
+   <button type="submit">Actualizar</button>  
+  </form>  
+  <p> Luego de seleccionar el archivo presione el boton actualizar</p>
+  <p>La siguiente tabla muestra el modelo que debe respetar el archivo</p>
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ticket</th>
+                    <th>cuenta</th>
+                    <th>estado</th>
+                    <th>valor</th>
+                    <th>concepto</th>
+                </tr>
+            </thead>         
+            <tbody>
+                <tr class="table-success">
+                    <td>100</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1000.55</td>
+                    <td>1</td>
+                </tr>
+              <br>
+            </tbody>
+          </table>
+          <br>
+          <p><strong>NOTA:</strong> todas las columnas del archivo debem estar en formato texto. </p>
+          <br>
+          <p><strong>ticket:</strong> Recibe un valor entero. Debe ser un valor único e incremental. (100) </p>
+          <p>(El ticket es senciblemente importante ya que los estados se actualizan en base a él)</p>
+          <p><strong>cuenta:</strong> Recibe un valor entero único e indica el número de cuenta del socio (1)</p> 
+          <p>Puede obtener el numero de cuenta en el administrador de socios</p>
+          <p><strong>estado:</strong> Recibe un valor entero, indica el estado del ticket (1 = Pago | 2 = Adeudado)</p>
+          <p><strong>valor:</strong> Recibe un valor decimal, indica el estado del ticket (1000,55)</p>
+          <p><strong>concepto:</strong> Recibe un valor entero, indica el concepto por el que se generó el ticket (1 = Cuota Social | 2 = Evento)</p>
+
+</div>
+{% endblock %} 

@@ -1,0 +1,89 @@
+{% extends '../base-index.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style type="text/css">
+	#contenedor{
+		background: #930;
+		padding: 10px;
+		overflow: hidden;
+	}
+	#izquierda{
+		float: left;
+		color: #fff;
+		padding: 10px;
+		width:300px;
+		margin: 40px;
+		/*background: #039*/
+	}
+	#derecha{
+		float: left;
+		color: #fff;
+		padding: 10px;
+		width:300px;
+		margin: 40px;
+		/*background: #039*/
+	}
+</style>
+
+
+<div class="contenedor">
+
+	<div id="izquierda">
+		<h1></h1>
+		<p></p>
+	</div>
+
+	<div id="derecha">
+
+		<div class="col-6">
+			<h1 class="col-6">Ingresar</h1>
+		</div>
+
+
+
+		<form method="post" class="form-signin">
+		  {% csrf_token %}
+		  
+		  <div class="col-6">
+		      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required autofocus>
+		    </div>
+
+		  <div class="col-6">
+		      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+		    </div>
+
+		  <div class="col-6">
+		      <button class="btn btn-primary" type="submit">Ingresar</button>
+		    </div>
+
+		  <p>
+		    
+		    {% for field in login_form %}
+		      {% for error in field.errors %}
+		            <p style="color: red">{{ error }}</p>
+		      {% endfor %}
+		    {% endfor %}
+		    {% if login_form.non_field_errors %}
+		      <div style="color: red">
+		        <p>{{login_form.non_field_errors}}</p>
+		      </div>
+		    {% endif %}
+		  </p>
+		  
+		    
+		    <!-- class="btn btn-primary btn-block mb-4" -->
+		  
+		</form>
+
+		<div class="d-flex flex-column">
+		   <!-- <a class='m-auto' href="#">Forgot password</a> -->
+		   <!-- <button class="form-control" type="submit">Ingresar</button> -->
+		</div>
+	</div>
+</div>
+{% endblock content %}
+
+

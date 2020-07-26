@@ -1,0 +1,94 @@
+{% extends 'base-index.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- seccion: sonbre nosotros -->
+<section class="callaction">
+  <!-- <div class="container-fluid"> -->
+  <div class="container mt-4">
+
+    <div class="row "> <!-- row -->
+      <div class="col-sm-12 col-md-12 col-xl-8 clearfix" >  <!--  cuerpo -->
+        <h5 class="display-4" style="font-size: 40px;">{{ post.title }}</h5>
+        
+        <div class="card bg-light">
+          
+          <div class="card-header">
+            <p class="lead" style="font-size: 15px;"> {{ post.overview | safe}} </p>
+          </div>
+          
+            <img class="img-fluid" src="{{ post.thumbnail.url }}" />
+          
+        </div>
+        
+        <div class="card-body border">
+          <p class="lead" style="font-size: 15px;"> {{ post.content | safe}}</p>
+        </div> 
+
+        <div class="card-footer">
+          <ul class="fa-ul">
+            <li><i class="fa-li fas fas fa-user text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Publicó: {{ post.author.user.username }}</p></li>
+            <li><i class="fa-li fas fas fa-clock text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Fecha y hora: {{ post.timestamp }} </p></li>
+            {% for cat in post.categories.all %}
+            <li><i class="fa-li fas fas fa-clock text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Categoría: {{ cat }} </p></li>
+            {% endfor %}
+          </ul> 
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xl-12 clearfix">
+        
+          <div class="float-left">
+            {% if post.previous_post %}
+            
+              <!-- <a href="{{ post.previous_post.get_absolute_url }}" class="btn btn-inverse btn-rounded btn-icon-briefcase"><i class="icon-chevron-left"></i> {{ post.previous_post.title }} </a> -->
+              <a href="{{ post.previous_post.get_absolute_url }}" type="button" class="btn btn-outline-secondary lead" style="font-size: 12px;"> <i class="fas fa-angle-double-left"></i> &nbsp;{{ post.previous_post.title }}</a>
+
+            {% endif %}
+          </div>
+
+          <div class="float-right">
+            
+            {% if post.next_post %}
+            <!-- <button type="button" class="btn btn-outline-secondary">Secondary</button> -->
+              <!-- <a href="{{ post.next_post.get_absolute_url }}" class="btn btn-inverse btn-rounded btn-icon-briefcase"><i class="icon-chevron-right"></i> {{ post.next_post.title }} </a> -->
+              <a href="{{ post.next_post.get_absolute_url }}" type="button" class="btn btn-outline-secondary lead" style="font-size: 12px;">{{ post.next_post.title }}&nbsp; <i class="fas fa-angle-double-right"></i> </a>
+            
+            {% endif %}
+
+          </div>
+
+        </div>
+      </div>
+
+        
+      </div> 
+      <div class="col-sm-12 col-md-12 col-xl-4 d-lg-block d-xl-block  clearfix mt-5" style="background-color: white;">  <!--  sidebar -->
+        {% include 'sidebar-index.html' %}
+      </div> <!-- fin sidebar -->
+      
+
+           
+              
+
+
+            
+
+
+      </div>
+    </div>
+  </div>
+    </section>
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
