@@ -1,0 +1,172 @@
+{% extends 'base-index.html' %}
+{% load static %}
+{% block content %}
+<!-- Blog 2 -->
+<link rel="stylesheet" href="static/icons/fontawesome/css/all.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!-- <section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <div class="inner-heading">
+                    <h2> SADEVE Artículos</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- seccion: sonbre nosotros -->
+<section class="callaction">
+    <div class="container">
+        <br>
+
+        <div class="row">
+            <div class="col-12 bg-black">uno</div>
+            <div class="col-12 bg-red">dos</div>
+            <div class="col-12 bg-blue">tres</div>
+        </div>
+       
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- <h4> <strong> SADEVE </strong> Comisión Directiva</h4> -->
+                        <h5 class="display-4" style="font-size: 40px;">SADEVE Artículos</h5>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Row -->
+    </div>
+</section>
+<!-- Fin seccion: sobre nosotros -->
+
+
+<section id="content">
+    
+    <div class="container">
+        
+
+
+        
+        <div class="row">
+            <div class="col-4 float-right">
+                <!-- Sidebar -->
+                {% include 'sidebar-index.html' %}
+            </div>
+            
+
+            {% for post in queryset %}
+              <div class="col-8 ">
+                  
+                    <div class="card w-100 bg-light"><!-- inicio de la tarjeta -->
+    
+                      <div class="card-header">
+                        <!-- <h3 class="card-title lead"><a href="{{ obj.get_absolute_url }}"> {{ obj.title }} </a></h3> -->
+                      </div>
+                      <img class="img-fluid" src="{{ post.thumbnail.url }}" alt="">
+                      
+                    <div class="card-body ">
+                      <a href="{{ post.get_absolute_url }}" class="lead text-secondary" style="font-size: 20px;"> {{ post.title }} </a>
+                      <hr />
+                      <p class="lead" style="font-size: 15px;"> {{ post.overview }} </p>
+                      <p><a href="{{ post.get_absolute_url }}" class="text-secondary">Leer artículo</a></p>
+                    </div>  
+                    <div class="card-footer">
+                      <ul class="fa-ul">
+                        <li><i class="fa-li fas fas fa-user text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">{{ post.author.user.username }}</p></li>
+                        <li><i class="fa-li fas fas fa-clock text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Fecha y hora: {{ post.timestamp }} </p></li>
+                        {% for cat in post.categories.all %}
+                            <li><i class="fa-li fas fas fa-clock text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Categoría: {{ cat }} </p></li>
+                        {% endfor %}
+                      </ul> 
+                    </div>
+                  </div> <!-- fin de la tarjeta -->
+                  <br>   
+              </div>
+    
+              {% endfor %}
+
+              
+              
+          </div>
+
+
+        <div class="row">
+           
+                <!-- End Pagination -->
+
+                <!-- PAGINADOR -->
+                <div id="pagination">
+                 <ul class="pagination pagination-template d-flex justify-content-center">
+                    {% if queryset.has_previous %}
+                        <li class="fa fa-angle-left">
+                            <a class="page-link" href="?page={{ queryset.previous_page_number }}" tabindex="-1">Anterior</a>
+                        </li>
+                    {% else %}
+                        <li class="fa fa-angle-left disabled" >
+                            <span>
+                                <i class="page-link">Anterior</i>
+                            </span>
+                        </li>
+                    {% endif %}
+
+                    {% if queryset.number|add:'-4' > 1 %}
+                        <li>
+                            <a href="?page={{ queryset.number|add:'-5' }}"></a>
+                        </li>
+                    {% endif %}
+
+                    {% for i in queryset.paginator.page_range %}
+                        {% if queryset.number == i %}
+                            <li class="page-item active">
+                                  <!-- <a class="page-link">{{ i }}</a> -->
+                                  <a class="page-link sr-only"><span class="sr-only">{{ i }}</span></a>
+                            </li>
+                        {% elif i > queryset.number|add:'-5' and i < queryset.number|add:'5' %}
+                            <li>
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if queryset.paginator.num_pages > queryset.number|add:'4' %}
+                        <li>
+                            <a class="page-link" href="?page={{ queryset.number|add:'5' }}">&hellip;</a>
+                        </li>
+                    {% endif %}
+
+                    {% if queryset.has_next %}
+                        <li class="fa fa-angle-left">
+                            <a class="page-link" href="?page={{ queryset.next_page_number }}">Siguiente</a>
+                        </li>
+                    {% else %}
+                        <li class="fa fa-angle-left disabled" >
+                            <span>
+                                <i class="page-link">Siguiente</i>
+                            </span>
+                        </li>
+                        
+
+                 </ul>
+                  {% endif %}
+                </div>
+                <!-- End Pagination -->
+                
+                
+            </div>
+            
+            
+
+    </div>
+
+    </div>
+
+</section>
+
+
+
+
+{% endblock content %}

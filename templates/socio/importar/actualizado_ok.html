@@ -1,0 +1,32 @@
+{% extends '../../base-index.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<section class="callaction ">
+
+  <div class="container ">
+    
+    
+    <br>
+      <div class="row mb-5">
+        
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 clearfix ">
+          <div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 bd-secondary ">
+            <h5 class="display-4 mt-2" style="font-size: 40px;">Felicitaciones !!</h5>
+            <hr/>
+            
+            <h3 class="display-4 mt-3" style="font-size: 30px;">El proceso se ejecutó sin errores</h3>
+
+            <a class="text-muted mt-2" href="/socio/cc_asiento/"><small><strong>Ir a Mi Perfil</small></strong></a>
+            &nbsp;&nbsp;
+            <a class="text-muted mt-2" href="{% url 'index' %}"><small><strong>ir a Inicio</small></strong></a>
+            <hr/>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %} 

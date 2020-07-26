@@ -1,0 +1,85 @@
+{% extends 'base-index.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="inner-headline">
+      <div class="container">
+        <div class="row">
+          <div class="span8">
+            <div class="inner-heading">
+              <h2>{{ post.title }}</h2>
+              <h2>Este</h2>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  <section id="content">
+      <div class="container">
+        <div class="row">
+          <div class="span8">
+            <article>
+              <div class="row">
+                <div class="span8">
+                  <div class="post-image">
+
+                    <img src="{{ post.thumbnail.url }}" alt="" />
+                  </div>
+
+                  <blockquote>
+                   <strong><i class="icon-quote-left"></i>   {{ post.overview | safe}}
+                  </blockquote></strong>
+
+                  <hr>
+                    {{ post.content | safe}}
+
+                  <div class="bottom-article">
+                    <ul class="meta-post">
+                      <li><i class="icon-user"></i><a href="#"> Admin</a></li>
+                      <li><i class="icon-folder-open"></i><a href="#"> Blog</a></li>
+                      <li><i class="icon-tags"></i><a href="#">Web design</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+
+            <div class="row">
+              <div class="span4" align="left">
+
+                {% if post.previous_post %}
+                <a href="{{ post.previous_post.get_absolute_url }}" class="btn btn-inverse btn-rounded btn-icon-briefcase"><i class="icon-chevron-left"></i> {{ post.previous_post.title }} </a>
+                {% endif %}
+
+              </div>
+
+              <div class="span4" align="right">
+
+                {% if post.next_post %}
+                <a href="{{ post.next_post.get_absolute_url }}" class="btn btn-inverse btn-rounded btn-icon-briefcase"><i class="icon-chevron-right"></i> {{ post.next_post.title }} </a>
+
+                {% endif %}
+
+              </div>
+            </div>
+
+          </div>
+                      <!-- Sidebar -->
+            {% include 'sidebar-index.html' %}
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+{
+
+{% endblock content %}

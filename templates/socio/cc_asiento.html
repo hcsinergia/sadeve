@@ -1,0 +1,221 @@
+
+{% extends '../base-index.html' %}
+{% load static %}
+                    
+{% block content %}
+                   
+                    
+                    
+
+<section class="callaction">
+
+    <div class="container mt-4">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 clearfix mt-2" style="background-color: lightgrey;">
+            <a class="m-2 float-right text-muted" href="/socio/perfil/{{ request.user.perfil }}"><small><strong>Editar mis datos</small></strong></a>
+            <a class="m-2 float-right text-muted" href="{% url 'accounts:password_change' %}"><small><strong>Cambiar contraseña</small></strong></a>
+        </div>
+          <br>
+        <div class="row">
+            <!-- <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 clearfix "> -->
+                
+            <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 clearfix "> 
+                
+                <div class="card ">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  clearfix ">
+                        <img src="{% static 'img/sadeve_foto_perfil.jpg' %}"  style="width:120px; height:120; align-items:center;" class="rounded-circle mt-2">
+
+                        <p class="card-title display-4 text-muted mt-3" style="font-size: 20px;">{{ request.user.nombre_1}} <strong>{{ request.user.apellido_1 }}</strong></p>
+
+                        <hr>
+                        <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>E-mail: </strong>{{ request.user.email }}</p>
+                        <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Teléfono: </strong>{{ request.user.tel_personal }}</p>
+                        <!-- <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Matrícula: </strong>{{ form2.matricula }}</p> -->
+                        
+
+                        {% if request.user.matricula is not None  %}
+                            <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Matrícula: </strong>{{ request.user.matricula }}</p>
+                        {% else %}
+                            <a href="/socio/perfil/{{ request.user.perfil }}" class="badge badge-danger"><small>Complete su ficha</small></a>
+                        {% endif %}
+                        
+                        <p ><small class="text-muted text-right">Socio número: {{ request.user.id_socio }}</small></p>
+
+                        
+                    </div>
+                </div>
+         
+            </div>
+            <div class="col-sm-12 col-md-12 d-lg-none d-xl-none d-sm-block d-md-block">
+                <br>
+            </div> 
+            <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7 clearfix "> 
+                
+                <div class="card"> 
+
+                    {% if asientos %}
+                        <div class="table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+                            <p class="card-title display-4 text-muted mt-3 ml-2" style="font-size: 20px;">Asientos en cuenta Num: {{ request.user.cuenta_numero }} - {{ request.user.id_cc }}</p>
+                                
+                            
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="lead text-muted" style="font-size: 12px;">
+                                        <!-- <th>Item</th> -->
+                                        <th>Fecha</th>
+                                        <!-- <th>Num. Cuenta</th> -->
+                                        <th>Ticket</th>
+                                        <th>Concepto</th>
+                                        <th>Estado</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>         
+                                <tbody>
+                                {% for asiento in asientos %}
+                                    <tr class="lead text-muted" style="font-size: 12px;">
+                                        <!-- <td>{{ asiento.id_cc }}</td> -->
+                                        <td>{{ asiento.fecha | date:'Y/m/d'}}</td>
+                                                <!-- <td>{{ asiento.fecha | date:"SHORT_DATE_FORMAT"}}</td> -->
+                                        <!-- <th>{{ asiento.cuenta }}</th> -->
+                                        <td>{{ asiento.ticket }}</td>
+                                        <td>{{ asiento.concepto }}</td>
+                                        <td>{{ asiento.estado }}</td>
+                                        <td>${{ asiento.valor}}</td>   
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="container">
+                            <h3 class="display-4 mt-3" style="font-size: 30px;">La cuenta no registran asientos</h3>
+                        </div>
+                    {% endif %}
+                            
+            
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <!-- <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 clearfix "> -->
+                
+            <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 clearfix "> 
+                
+                <div class="card ">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  clearfix ">
+                    
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 "> 
+                            <p class="display-4 text-muted mt-3" style="font-size: 20px;"><strong>Ficha de socios</strong></p> 
+                            <hr class="mt-1">
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 "> 
+                            <a href="/socio/perfil/{{ request.user.perfil }}"> <p class="text-right"><small class="text-muted">Editar datos </small></p></a>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 "> 
+                            <hr class="mt-1"> 
+                        </div>
+                        
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 "> 
+                        <br>
+                        
+                            <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Socio número:</strong> {{ request.user.id_socio }}</p>
+
+                            <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Apellidos y Nombre: </strong> 
+                                {{ request.user.apellido_1 }} 
+                                
+                                {% if request.user.apellido_2 is not None  %}
+                                    {{ request.user.apellido_2 }}
+                                {% endif %}
+
+                                {{ request.user.nombre_1}} 
+                                
+                                {% if request.user.nombre_2 is not None  %}
+                                    {{ request.user.nombre_2}} 
+                                {% endif %}
+                            </p>
+
+                            {% if request.user.dni is not None  %}
+                                <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>DNI: </strong> 
+                                    {{ request.user.dni }}
+                                </p>
+                            {% endif %}
+
+                            {% if request.user.cuit is not None  %}
+                                <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>CUIT: </strong> 
+                                    {{ request.user.cuit }}
+                                </p>
+                            {% endif %}
+                                
+                                <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>E-mail: </strong>{{ request.user.email }}</p>
+                                
+
+                                
+                                <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Teléfono: </strong>{{ request.user.tel_personal }}</p>
+                                
+                                
+
+                                {% if request.user.matricula is not None  %}
+                                    <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Matrícula: </strong>{{ request.user.matricula }}</p>
+                                {% endif %}
+
+                                {% if request.user.especialidad_principal is not None  %}
+                                    <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Especialidad: </strong>{{ request.user.especialidad_principal }}</p>
+                                {% endif %}
+
+                                {% if request.user.email_2 is not None  %}
+                                    <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Email Segundario: </strong>{{ request.user.email_2 }}</p>
+                                {% endif %}
+
+                                {% if request.user.tel_personal is not None  %}
+                                    <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Teléfono Personal: </strong>{{ request.user.tel_personal }}</p>
+                                {% endif %}
+
+                                {% if request.user.tel_laboral is not None  %}
+                                    <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Teléfono Laboral: </strong>{{ request.user.tel_laboral }}</p>
+                                {% endif %}
+
+                                {% if request.user.domicilio_postal is not None  %}
+                                    <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Domicilio Postal: </strong>{{ request.user.domicilio_postal }}</p>
+                                {% endif %}
+
+                                {% if request.user.domicilio_fiscal is not None  %}
+                                    <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Domicilio Fiscal: </strong>{{ request.user.domicilio_fiscal}}</p>
+                                {% endif %}
+
+                                {% if request.user.observacion is not None  %}
+                                    <p class="card-title display-4 text-muted" style="font-size: 15px;"><strong>Observación: </strong>{{ request.user.observacion}}</p>
+                                {% endif %}
+      
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+     </div>
+              
+</section>
+<br>
+
+{% endblock content %}

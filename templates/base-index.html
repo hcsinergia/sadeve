@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    {% include 'head-index.html' %}
+<script src="{% static 'static_bootstrap4/plugins/jquery_3.4.1/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'static_bootstrap4/plugins/bootstrap_4.4.1/popper.min.js' %}"></script>
+<script src="{% static 'static_bootstrap4/plugins/bootstrap_4.4.1/bootstrap.min.js' %}"></script>
+<link href="{% static 'static_bootstrap4/plugins/bootstrap_4.4.1/bootstrap.min.css' %}" rel="stylesheet" />
+    
+<body>
+    {% include 'header3b.html' %}
+    
+    {% block content %}
+    {% endblock content %}
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

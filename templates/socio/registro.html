@@ -1,0 +1,36 @@
+{% extends '../base-index.html' %}
+{% load static %}
+{% block content %}
+  <section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <div class="inner-heading">
+                    <!-- <h2> Perfil de socio </h2> -->
+                    <h2>Bienvenido : {{ request.user.nombre_1}} </h2>
+                      {% if request.user.not_is_superuser %}
+                        <span class="badge badge-warning">Usted poseé deuda de cuota social</span>
+                      {% endif %}                      
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <div class="container">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+        <h1>Register Here</h1>
+        <h3>Just fill out the form.</h3><form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          <input type="submit" name="" value="Register">
+        </form>
+        
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

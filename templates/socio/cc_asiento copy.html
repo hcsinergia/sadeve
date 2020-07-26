@@ -1,0 +1,70 @@
+{% extends '../base-index.html' %}
+{% load static %}
+{% block content %}
+
+  <section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="inner-heading">
+                    <!-- <h2> Perfil de socio </h2> -->
+                    <h2>Bienvenido : {{ request.user.nombre_1}} {{ request.user.apellido_1 }} </h2>
+                    	<!-- {% if request.user.not_is_superuser %}
+                    		<span class="badge badge-warning">Usted poseé deuda de cuota social</span>
+                    	{% endif %}     -->                  
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+<hr>
+
+<div class="navbar navbar-static-top">
+    <div class="navegation ">
+            <div class="row nomargin">
+                <div class="span12">
+                    <div class="headnav">
+                        <a class="nav topnav bold" href="/socio/perfil/{{ request.user.perfil }}"> Mi Perfil </a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+        {% if asientos %}
+        <div class="container">
+          <h3>Asientos en cuenta Num: <strong>{{ request.user.cuenta_numero }} - {{ request.user.id_cc }}</strong>  </h3>
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <!-- <th>Item</th> -->
+                    <th>Fecha</th>
+                    <!-- <th>Num. Cuenta</th> -->
+                    <th>Ticket</th>
+                    <th>Concepto</th>
+                    <th>Estado</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>         
+            <tbody>
+              {% for asiento in asientos %}
+                <tr class="table-success">
+                    <!-- <td>{{ asiento.id_cc }}</td> -->
+                    <td>{{ asiento.fecha}}</td>
+                    <!-- <th>{{ asiento.cuenta }}</th> -->
+                    <td>{{ asiento.ticket }}</td>
+                    <td>{{ asiento.concepto }}</td>
+                    <td>{{ asiento.estado }}</td>
+                    <td>$ {{ asiento.valor}}</td>   
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+        <div class="container">
+            <h3>la cuenta no registran asientos</h3>
+        </div>
+        {% endif %}
+</div>
+{% endblock content %}

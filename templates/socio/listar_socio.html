@@ -1,0 +1,72 @@
+{% extends 'base-index.html' %}
+{% load static %}
+
+{% block titulo %}
+  Estudio | Listado de Usuarios
+{% endblock titulo %}
+
+{% block body %}
+
+  {% if usuarios %}
+      <div class="card">
+          <div class="card-header">
+              <strong class="card-title">Listado de Usuarios</strong>
+          </div>
+
+          <div class="table-stats order-table ov-h">
+              <table class="table">
+                  <thead>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th><a href="{% url 'usuario:crear_usuario'%}" class="btn btn-success">Nuevo</a></th>
+                      </tr>
+                  </thead>
+              </table>
+              <table class="table">
+                  <thead>
+                      <tr>
+                        <th>ID</th>
+                      <!--
+                        <th>DNI</th>
+                        <th>User</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Ultimo Ingreso</th>
+                        <th>Estado</th>
+                        <th>Empleador</th>
+                      -->
+                        <th></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    {% for usuario in usuarios %}
+                      <tr>
+                        <td>{{ usuario.id }}</td>
+                        <!--
+                        <td>{{ usuario.username }}</td>
+                        <td>{{ user.dni }}</td>
+                        <td>{{ usuario.first_name }}</td>
+                        <td>{{ usuario.last_name }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.last_login }}</td>
+                        <td>{{ usuario.is_active }}</td>
+                        <td>{{ usuario.empleador }}</td>
+                      -->
+                        <td>
+                          <a href="{% url 'usuario:editar_usuario' usuario.id %}" class="btn btn-primary">Editar</a>
+                          <a href="{% url 'usuario:eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+      {% else %}
+        <h1>No existen usuarios registrados</h1>
+      {% endif %}
+
+{% endblock body %}

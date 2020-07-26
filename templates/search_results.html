@@ -1,0 +1,48 @@
+{% extends 'base-index.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<section class="callaction">
+	<div class="contenedor">
+	
+		<div class="row "> <!-- row -->
+			<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 bd-secondary ">
+	
+				<h5 class="display-4 mt-5 ml-5" style="font-size: 40px;">Este es el resultado de su búsqueda</h5>
+				<hr/>
+	
+			</div>
+		</div>
+	
+		<div class="row mt-1">
+	
+		<div class="col-xl-2 col-lg-2 d-none d-lg-block d-xl-block clearfix bd-secondary">
+		</div>
+	
+			<div class="col-sm-12 col-md-12 col-xl-8 col-lg-8 clearfix bd-secondary ">
+				<h3 class="display-4 mt-3 " style="font-size: 30px;">Títulos</h3>
+				<hr/>
+				
+				{% for post in queryset %}
+				<a class="lead text-muted " href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+				<br />
+			{% endfor %}
+	
+			<br>
+	
+				
+			</div>
+	
+		</div>
+		
+	</div>
+	
+	
+	</div> <!-- row-->
+	</div> <!-- contenedor-->
+	
+</section>
+
+{% endblock %}

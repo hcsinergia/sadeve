@@ -1,0 +1,116 @@
+{% extends '../../base-index.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="callaction ">
+
+  <div class="container ">
+    
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 clearfix mt-2" style="background-color: lightgrey;">
+      <a class="m-2 float-right text-muted" href="/socio/cc_asiento/"><small><strong>Mi perfil</small></strong></a>
+      <a class="m-2 float-right text-muted" href="{% url 'accounts:password_change' %}"><small><strong>Cambiar contraseña</small></strong></a>
+    </div>
+    <br>
+      <div class="row">
+        
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 clearfix ">
+          <div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 bd-secondary ">
+            <h5 class="display-4 mt-2" style="font-size: 40px;">Administración</h5>
+            <hr/>
+            
+            <h3 class="display-4 mt-3" style="font-size: 30px;">Actualizar Asientos</h3>
+            <!-- <h3 class="display-4 text-muted mt-1" style="font-size: 15px;"><small><strong>Número de socio: </strong></small><small>{{ request.user.id_socio }}</small></h3>
+            
+            <h3 class="display-4 text-muted mt-1" style="font-size: 15px;"><small><strong>Usuario: </strong></small><small>{{ request.user.email }}</small></h3> -->
+            <hr/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class="col-xl-2 col-lg-2 d-none d-lg-block d-xl-block clearfix bd-secondary" style="background-color: white;">
+          
+        </div>
+        
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 clearfix mt-2  ">
+
+          <h5 class="display-4 mt-2" style="font-size: 20px;">Seleccione archivo fuente</h5>
+      
+      <div class="row m-2 float-center">
+       
+        
+
+        
+        <form method="post" enctype="multipart/form-data"> 
+          {% csrf_token %}  
+          <input class="form-control" type="file" name="xlsfile">
+          <button class="btn btn btn-secondary w-100" type="submit">Actualizar</button>  
+         </form> 
+
+         <!-- <form method="post" enctype="multipart/form-data">  
+          {% csrf_token %}  
+          <input type="file" name="xlsfile">
+          <button type="submit">Actualizar</button>  
+         </form>   -->
+         
+         
+      </div>
+
+      <div class="row m-2">
+        
+        <span class="lead text-muted" style="font-size: 15px;">Luego de seleccionar el archivo presione el boton actualizar</span>
+        
+        <span class="lead text-muted" style="font-size: 15px;">La siguiente tabla muestra el modelo que debe respetar el archivo</span>
+        
+      </div>
+
+      <div class="row m-2">
+        <h5 class="display-4 mt-2" style="font-size: 20px;">Tabla ejemplificativa</h5>
+
+      <table class="table">
+        <thead>
+            <tr class="lead text-muted" style="font-size: 15px;">
+                <th>ticket</th>
+                <th>cuenta</th>
+                <th>estado</th>
+                <th>valor</th>
+                <th>concepto</th>
+            </tr>
+        </thead>         
+        <tbody>
+            <tr class="lead text-muted" style="font-size: 15px;">
+                <td>100</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1000.55</td>
+                <td>1</td>
+            </tr>
+          <br>
+        </tbody>
+      </table>
+      <br>
+     
+
+      <ul>
+      
+      
+      <h5 class="display-4 mt-2" style="font-size: 20px;">Descripción de campos</h5>
+
+      <p class="lead text-muted" style="font-size: 15px;"><kbd>ticket:</kbd> Recibe un valor entero. Debe ser un valor único e incremental. (100) </p>
+      <p class="lead text-muted" style="font-size: 15px;">(El ticket es senciblemente importante ya que los estados se actualizan en base a él)</p>
+      <p class="lead text-muted" style="font-size: 15px;"><kbd>cuenta:</kbd> Recibe un valor entero único e indica el número de cuenta del socio (1)</p> 
+      <p class="lead text-muted" style="font-size: 15px;">Puede obtener el numero de cuenta en el administrador de socios</p>
+      <p class="lead text-muted" style="font-size: 15px;"><kbd>estado:</kbd> Recibe un valor entero, indica el estado del ticket (1 = Pago | 2 = Adeudado)</p>
+      <p class="lead text-muted" style="font-size: 15px;"><kbd>valor:</kbd> Recibe un valor decimal, indica el estado del ticket (1000,55)</p>
+      <p class="lead text-muted" style="font-size: 15px;"><kbd>concepto:</kbd> Recibe un valor entero, indica el concepto por el que se generó el ticket (1 = Cuota Social | 2 = Evento)</p>
+    </ul>
+    </div>
+  </div>
+  
+    </div>
+</section>
+<br>
+{% endblock %}

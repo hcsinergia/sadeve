@@ -1,0 +1,159 @@
+{% extends 'base-index.html' %}
+{% load static %}
+{% block content %}
+<!-- Blog 2 -->
+
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <div class="inner-heading">
+                    <h2> SADEVE Artículos </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+
+                {% for post in queryset %}
+
+                <article>
+                    <div class="row">
+                        <div class="span8">
+                            <div class="post-image">
+                                <div class="post-heading">
+                                    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                                </div>
+                                <img src="{{ post.thumbnail.url }}" alt="" />
+                            </div>
+                            <p>
+                                {{ post.overview }}
+                            </p>
+                            <div class="bottom-article">
+                                <ul class="meta-post">
+                                    <li><i class="icon-calendar"></i><a href="#"> Publicado hace: {{ post.timestamp|timesince }} </a></li>
+                                    <li><i class="icon-user"></i><a href="#"> {{ post.author.user.username }} </a></li>
+                                    {% for cat in post.categories.all %}
+
+                                    <li><i class="icon-folder-open"></i> <a href="#">{{ cat }}</a> </li>
+
+
+                                    {% endfor %}
+                                </ul>
+                                <a href="{{ post.get_absolute_url }}" class="pull-right">Leer más <i class="icon-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                {% endfor %}
+
+
+                <!-- Pagination VIEJO -->
+                <!-- <div id="pagination">
+                    <ul class="pagination pagination-template d-flex justify-content-center">
+                        {% if queryset.has_previous %}
+                        <a>Página: </a> 
+                        <li class="page-item">
+                            <a href="?{{ page_request_var }}={{ paginated_queryset.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <a>Página: </a> 
+                        <li class="page-item">
+                            <a href="?{{ page_request_var }}={{ paginated_queryset.previous_page_number }}" class="page-link active">{{ queryset.number }}</a>
+                        </li>
+                        {% if queryset.has_next %}
+                        <a>Página: </a> 
+                        <li class="page-item">
+                            <a href="?{{ page_request_var }}={{ paginated_queryset.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div> -->
+
+
+                <!-- End Pagination -->
+
+                <!-- PAGINADOR -->
+                <div id="pagination">
+                 <ul class="pagination pagination-template d-flex justify-content-center">
+                    {% if queryset.has_previous %}
+                        <li class="fa fa-angle-left">
+                            <a class="page-link" href="?page={{ queryset.previous_page_number }}" tabindex="-1">Anterior</a>
+                        </li>
+                    {% else %}
+                        <li class="fa fa-angle-left disabled" >
+                            <span>
+                                <i class="page-link">Anterior</i>
+                            </span>
+                        </li>
+                    {% endif %}
+
+                    {% if queryset.number|add:'-4' > 1 %}
+                        <li>
+                            <a href="?page={{ queryset.number|add:'-5' }}"></a>
+                        </li>
+                    {% endif %}
+
+                    {% for i in queryset.paginator.page_range %}
+                        {% if queryset.number == i %}
+                            <li class="page-item active">
+                                  <!-- <a class="page-link">{{ i }}</a> -->
+                                  <a class="page-link sr-only"><span class="sr-only">{{ i }}</span></a>
+                            </li>
+                        {% elif i > queryset.number|add:'-5' and i < queryset.number|add:'5' %}
+                            <li>
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if queryset.paginator.num_pages > queryset.number|add:'4' %}
+                        <li>
+                            <a class="page-link" href="?page={{ queryset.number|add:'5' }}">&hellip;</a>
+                        </li>
+                    {% endif %}
+
+                    {% if queryset.has_next %}
+                        <li class="fa fa-angle-left">
+                            <a class="page-link" href="?page={{ queryset.next_page_number }}">Siguiente</a>
+                        </li>
+                    {% else %}
+                        <li class="fa fa-angle-left disabled" >
+                            <span>
+                                <i class="page-link">Siguiente</i>
+                            </span>
+                        </li>
+
+                 </ul>
+                  {% endif %}
+                </div>
+                <!-- End Pagination -->
+
+
+            </div>
+
+            <!-- Sidebar -->
+            {% include 'sidebar-index.html' %}
+
+    </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+{% endblock content %}

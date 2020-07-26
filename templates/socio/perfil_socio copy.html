@@ -1,0 +1,122 @@
+{% extends '../base-index.html' %}
+{% load static %}
+
+{% block content %}
+  <section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="inner-heading">
+                    <!-- <h2> Perfil de socio </h2> -->
+                    <h2>Bienvenido11 : {{ request.user.nombre_1}} {{ request.user.apellido_1}}</h2>
+                      <!-- {% if request.user.not_is_superuser %}
+                        <span class="badge badge-warning">Usted poseé deuda de cuota social</span>
+                      {% endif %}        -->               
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+<div class="navbar navbar-static-top">
+  <div class="navegation ">
+          <div class="row nomargin">
+              <div class="span12">
+                  <div class="headnav">
+                      <a class="nav topnav bold" href="/socio/cc_asiento/"> Estado de Cuenta </a>
+                      <a class="nav topnav bold" href="{% url 'accounts:password_change' %}"> Cambiar contraseña </a>
+                  </div>
+              </div>
+          </div>
+  </div>
+</div> 
+
+
+ 
+
+  <div class="span12">
+    <div class="span">
+  
+    </div>
+    <div class="span12">
+        <h3>Perfil de Socio</h3>
+    </div>
+  </div>
+          <form  method="POST" class="span20">
+          {% csrf_token %}
+
+            <div class="span3">
+              <label for="num_socio">Num. Socio.</label>
+                {{ request.user.id_socio }}
+            </div>
+            <div class="span3">
+              <label for="email">E-mail (Usuario)</label>
+                {{ request.user.email }}
+            </div>
+            <div class="span3">
+                <label for="matricula">Matricula</label>
+                {{ form2.matricula }}
+            </div>
+            <div class="span3">
+                <label for="especialidad_principal">Especialidad</label>
+                {{ form2.especialidad_principal }}
+            </div>
+            <div class="span3">
+                <label for="nombre_1">Primer Nombre</label>
+                {{ form.nombre_1 }}
+            </div>
+            <div class="span3">
+                <label for="nombre_2">Segundo Nombre</label>
+                {{ form.nombre_2 }}
+            </div>
+            <div class="span3">
+                <label for="apellido_1">Primer Apellido</label>
+                {{ form.apellido_1 }}
+            </div>
+            <div class="span3">
+                <label for="apellido_2">Segundo Apellido</label>
+                {{ form.apellido_2 }}
+            </div>
+            <div class="span3">
+                <label for="email_2">E-mail Secundario</label>
+                {{ form2.email_2 }}
+            </div>
+            <div class="span3">
+                <label for="tel_personal">Teléfono Personal</label>
+                {{ form2.tel_personal }}
+            </div>
+
+            <div class="span3">
+                <label for="tel_laboral">Teléfono Laboral</label>
+                {{ form2.tel_laboral }}
+            </div>
+
+            <div class="span3">
+                <label for="email_2">Domicilio Postal</label>
+                {{ form2.domicilio_postal }}
+            </div>
+
+            <div class="span3">
+                <label for="email_2">Domicilio Fiscal</label>
+                {{ form2.domicilio_fiscal}}
+            </div>
+
+            <div class="span3">
+                <label for="email_2">Observacion</label>
+                {{ form2.observacion}}
+            </div>
+            
+            <div class="span3">
+              <br>
+               <button type="submit" class="btn btn-primary btn-lg">Guardar</button>   
+               <!-- <a href="#" class="btn btn-lg ">Cancelar</a> -->
+            </div>
+                   
+          </form>
+      </div>
+    </div>
+  </div> <!-- span form -->
+    </div> <!-- fin row -->
+</div> <!-- fin row -->
+{% endblock content %}

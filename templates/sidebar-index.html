@@ -1,0 +1,116 @@
+{% load static %}
+
+
+
+
+<!-- Sidebar -->
+
+                <div class="card bg-light border alight-right mt-2">
+                    <div class="row ml-2 ">
+                        <h5 class="display-4" style="font-size: 20px;">Buscar</h5>
+                    </div>
+                    <form class="form" action="{% url 'search' %}">
+
+                        <div class="form-group">
+                            <input type="text" name="q" placeholder="¿Que estás buscando?"">
+             
+                            <!-- &nbsp;&nbsp; -->
+                        </div>
+                        
+                        <button type="submit" class="btn btn-outline-secondary btn-sm "><i class="fas fa-search" style="font-size: 20px;"></i>Buscar</button>
+                        <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
+                            
+                    </form>
+                </div>
+                <hr />
+                <!-- Widget [Latest Posts Widget]        -->
+
+                    <!-- Categorias -->
+                    <!-- <div class="widget">
+                        <h5 class="widgetheading">Categorías</h5>
+                        <ul class="cat">
+                            {% for cat in category_count %}
+
+
+
+                            <li><i class="icon-angle-right"></i><a href="">
+                                {{ cat.categories__title }}</a>
+                                <span> ({{ cat.categories__title__count }})</span>
+                            </li>
+
+                            {% endfor %}
+
+                        </ul>
+                    </div> -->
+                    <!-- End categorias -->
+
+
+                    <!-- Latest posts -->
+                    <!-- <div class="col-8 ml-3"> -->
+                        <!-- <h5 class="widgetheading"> @Artículos Destacados</h5> -->
+
+                        <div class="row ml-3">
+                            <h5 class="display-4" style="font-size: 20px;">Artículos Destacados</h5>
+                        </div>
+
+                        <div class="row">
+
+                            {% for post in featured %}
+                              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-xs-none clearfix">
+                                  
+                                    <div class="card w-100 bg-light"><!-- inicio de la tarjeta -->
+                    
+                                      <div class="card-header">
+                                        <!-- <h3 class="card-title lead"><a href="{{ obj.get_absolute_url }}"> {{ obj.title }} </a></h3> -->
+                                      </div>
+                                      <!-- <img class="img-fluid" src="{{ obj.thumbnail.url }}" alt=""> -->
+                                      <img class="img-fluid" src="{{ post.thumbnail.url }}" class="pull-left" alt="" />
+                                      
+                                    <div class="card-body ">
+                                      <a href="{{ post.get_absolute_url }}" class="lead text-secondary" style="font-size: 20px;"> {{ post.title }} </a>
+                                      <hr />
+                                      <p class="lead" style="font-size: 15px;"> {{ post.overview }} </p>
+                                      <p><a href="{{ obj.get_absolute_url }}" class="text-secondary">Leer artículo</a></p>
+                                    </div>  
+                                    <!-- <div class="card-footer">
+                                      
+                                      <ul class="fa-ul">
+                                        <li><i class="fa-li fas fas fa-user text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">SADeVe</p></li>
+                                        <li><i class="fa-li fas fas fa-clock text-secondary lead" style="font-size: 15px;"></i><p class="text-secondary lead" style="font-size: 15px;">Fecha y hora: {{ obj.timestamp }}</p></li>
+                                        
+                                      </ul>
+                                      
+                                    </div> -->
+                                    
+                                  </div> <!-- fin de la tarjeta -->
+                                  <br>
+                                  
+                              </div>
+                    
+                              {% endfor %}
+                          </div>
+
+
+
+
+                        <!-- <ul class="recent">
+
+                            {% for post in featured %}
+
+                            <li>
+                                <img src="{{ post.thumbnail.url }}" class="pull-left" alt="" />
+                                <h6><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h6>
+                                <p>
+                                    {{ post.overview }}
+                                </p>
+                            </li>
+
+                           {% endfor %}
+
+                        </ul> -->
+                    <!-- </div> -->
+
+                </aside>
+            </div>
+            <!-- end sidebar -->
+

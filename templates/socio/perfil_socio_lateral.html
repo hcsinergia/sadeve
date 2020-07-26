@@ -1,0 +1,51 @@
+<!-- Sidebar -->
+            <div class="span4">
+
+                <aside class="right-sidebar">
+                    <div class="widget">
+                        <form class="form-search">
+                            <input placeholder="Ingrese búsqueda" type="text" class="input-medium search-query">
+                            <button type="submit" class="btn btn-square btn-theme">Buscar</button>
+                        </form>
+                    </div>
+
+                    <!-- Categorias -->
+                    <div class="widget">
+                        <h5 class="widgetheading">Categorías</h5>
+                        <ul class="cat">
+                            {% for cat in category_count %}
+
+                            <li><i class="icon-angle-right"></i><a href="#">
+                                {{ cat.categories__title }}</a>
+                                <span> ({{ cat.categories__title__count }})</span>
+                            </li>
+
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <!-- End categorias -->
+                    <!-- Latest posts -->
+                    <div class="widget">
+                        <h5 class="widgetheading"> Artículos Destacados</h5>
+                        <ul class="recent">
+
+                            {% for post in featured %}
+
+                            <li>
+                                <img src="{{ post.thumbnail.url }}" class="pull-left" alt="" />
+                                <h6><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h6>
+                                <p>
+                                    {{ post.overview }}
+                                </p>
+                            </li>
+
+                           {% endfor %}
+
+                        </ul>
+                    </div>
+
+                </aside>
+            </div>
+            <!-- end sidebar -->
+        </div>

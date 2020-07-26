@@ -1,0 +1,71 @@
+{% load static %}
+
+
+<div class="box aligncenter">
+    <div class="row">
+        <div class="span3">
+            <div>
+                <div>
+                    <a href="{% url 'post-list' %}"> <i class="icon icon-edit icon-circle icon-64 active" href="{% url 'post-list' %}"> </i> </a>
+                </div>
+                <div class="text">
+                    <h6>Blog y Artículos</h6>
+                    <p>
+                        En esta sección podés encontrar artículos generales y de interés científico.
+                    </p>
+                    <a href="{% url 'post-list' %}">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="box aligncenter">
+                <div class="aligncenter icon">
+                    <a href="{% url 'about' %}"> <i class="icon-group icon-circled icon-64 active href='{% url 'about' %}'"></i> </a>
+
+                </div>
+                <div class="text">
+                    <h6>Comisión Directiva</h6>
+                    <p>
+                        Aquí podés conocer a los miembros de la comisión directiva.
+                    </p>
+                    <a href="{% url 'about' %}">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="box aligncenter">
+                <div class="aligncenter icon">
+                    <a target="popup" 
+                        onclick="window.open('{% static 'files/estatuto.pdf' %}','popup','width=600,height=600'); 
+                        return false;"><i class="icon-group icon-circled icon-64 active href='{% url 'estatuto' %}'"></i>
+                    </a>
+                </div>
+                
+
+                <div class="text">
+                    <h6>Estatuto</h6>
+                    <p>
+                        Accedé a nuestro estatuto, conocé nuestra misión y valores.
+                    </p>
+                    <a target='_blank' href="{% url 'estatuto' %}">Ver web</a>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="box aligncenter">
+                <div class="aligncenter icon">
+                    <!-- <a href="/contact"> <i class="icon-edit icon-circled icon-64 active" href="/contact"> </i> </a> -->
+                    <a href="{% url 'about' %}"> <i class="icon-edit icon-circled icon-64 active" href="{% url 'about' %}"> </i> </a>
+
+                </div>
+                <div class="text">
+                    <h6>Contacto</h6>
+                    <p>
+                        ¡Envianos tu consulta!, no dudes en hacerlo.
+                    </p>
+                    <a href="/contact">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

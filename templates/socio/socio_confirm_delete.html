@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block titulo %}
+  Estudio | confirmación de Eliminación
+{% endblock titulo %}
+
+{% block body %}
+
+<form method="post">
+  {% csrf_token %}
+  <p><strong>¿Desea eliminar el registro {{ object }}?</strong></p>
+  <button type="submit" class="btn btn-danger">Confirmar</button>
+  <a href="{% url 'usuario:listar_usuario' %}" class="btn btn-primary">Cancelar</a>
+
+</form>
+
+{% endblock body %}

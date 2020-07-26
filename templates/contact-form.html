@@ -1,0 +1,59 @@
+{% extends 'base-index.html' %}
+{% load static %}
+{% block content %}
+<!-- Blog 2 -->
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <div class="inner-heading">
+                    <h2> Contactate con SADEVE </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <section id="content">
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.7430042247347!2d-57.940002784583804!3d-34.91289838038051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e616345491df%3A0x83674a4bc228ee1a!2sEEST+No.+6+Albert+Thomas!5e0!3m2!1ses!2sar!4v1553132503772" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <h4>Contactate con nosotros <strong>completando el formulario</strong></h4>
+
+            <form action="" method="post" role="form" class="contactForm">
+              <div id="sendmessage">Su mensaje se envió correctamente. Gracias!</div>
+              <div id="errormessage"></div>
+
+              <div class="row">
+                <div class="span4 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre y Apellido" data-rule="minlen:4" data-msg="Ingrese al menos 4 caracteres" />
+                  <div class="validation"></div>
+                </div>
+                <div class="span4 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electrónico" data-rule="email" data-msg="Ingrese una dirección válida" />
+                  <div class="validation"></div>
+                </div>
+                <div class="span4 form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Ingrese al menos 4 caracteres" />
+                  <div class="validation"></div>
+                </div>
+                <div class="span12 margintop10 form-group">
+                  <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Escribinos tu mensaje" placeholder="Mensaje"></textarea>
+                  <div class="validation"></div>
+                  <p class="text-center">
+                    <button class="btn btn-large btn-theme margintop10" type="submit">Enviar</button>
+                  </p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock content %}
